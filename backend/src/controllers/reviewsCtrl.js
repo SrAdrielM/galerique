@@ -24,7 +24,7 @@ reviewsController.deleteReviews = async (req, res) => {
 // UPDATE
 reviewsController.updateReviews = async (req, res) => {
     const { comment, rating, idProduct, idBuyer } = req.body;
-    const updateReview = await reviewsModel.findByIdAndUpdate(req.params.id, { comment, rating, idProduct, idBuyer }, {new: true});
+    const updateReviews = await reviewsModel.findByIdAndUpdate(req.params.id, { comment, rating, idProduct, idBuyer }, {new: true});
     res.json({message: "Review update succesfully"})
 } 
 
