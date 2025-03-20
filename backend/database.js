@@ -14,5 +14,5 @@ connection.once("disconnected", () => {
 })
 
 connection.once("error", () => {
-    console.log("error found D:" + error );
+    console.log("error found D:");
 })
