@@ -17,7 +17,10 @@ function LogIn() {
                 <input type="text" />
                 <p>Contraseña</p>
                 <input type="password" />
-                <p id="recuContra">Olvide mi contraseña</p>
+                <div id="subBox">
+                  <p id="recuContra">Olvide mi contraseña</p>
+                  <button id="btnAcess" class>Acceder</button>
+                </div>
             </section>
             <section id="sect2">
                 <div id="imgCont">
@@ -25,6 +28,7 @@ function LogIn() {
                 </div>
                 <p>Continuar con google</p>
             </section>
+            <div id="separador"><p>O</p></div>
             <section id="sect3">
                 <p>¿Aun no tienes cuenta?, <span>Registrate aqui</span>.</p>
             </section>
