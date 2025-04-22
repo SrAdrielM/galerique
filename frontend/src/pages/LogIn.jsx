@@ -19,7 +19,7 @@ function LogIn() {
                 <input type="password" />
                 <div id="subBox">
                   <p id="recuContra">Olvide mi contraseña</p>
-                  <button id="btnAcess" class>Acceder</button>
+                  <a id="btnAcess" href="#">Acceder</a>
                 </div>
             </section>
             <section id="sect2">
