@@ -1,41 +1,55 @@
 import React from "react";
-import '../styles/Login.css'
-import googleLogo from "../imgs/googleLogo.png"
+import '../styles/Login.css';
+import googleIcon from "../imgs/googleLogo.png";
+import { useNavigate } from 'react-router-dom';
 
 function LogIn() {
 
+  const navigate = useNavigate();
+
   return (
-    <>
-      <div id="container">
-        <div id="box1">
-            <img src=""/>
-        </div>
-        <div id="box2">
-            <section id="sect1">
-                <h1>Acceso</h1>
-                <p>Correo o nombre de usuario</p>
-                <input type="text" />
-                <p>Contraseña</p>
-                <input type="password" />
-                <div id="subBox">
-                  <p id="recuContra">Olvide mi contraseña</p>
-                  <a id="btnAcess" href="#">Acceder</a>
-                </div>
-            </section>
-            <section id="sect2">
-                <div id="imgCont">
-                    <img src={googleLogo} alt="" />
-                </div>
-                <p>Continuar con google</p>
-            </section>
-            <div id="separador"><p>O</p></div>
-            <section id="sect3">
-                <p>¿Aun no tienes cuenta?, <span>Registrate aqui</span>.</p>
-            </section>
+    <div className="login-container">
+      <div className="art-collage">
+        <h1 className="brand-name">Galerique</h1>
+      </div>
+
+    
+      <div className="login-form-container">
+        <div className="login-form">
+          <h1 className="login-title">Acesso</h1>
+          
+          <div className="input-group">
+            <label>Correo o Nombre de usuario</label>
+            <input type="text" className="login-input" />
+          </div>
+          
+          <div className="input-group">
+            <label>Contraseña</label>
+            <input type="password" className="login-input" />
+          </div>
+          
+          <button className="continue-btn" onClick={() => navigate('/')}>Continuar</button>
+          
+          <div className="forgot-password">
+            <a href="#">Olvide mi contraseña</a>
+          </div>
+          
+          <button className="google-login-btn">
+            <img src={googleIcon} alt="Google" className="google-icon" />
+            <span>Continuar con Google</span>
+          </button>
+          
+          <div className="divider">
+            <span>o</span>
+          </div>
+          
+          <div className="register-prompt">
+            ¿No tienes cuenta? <a href="#">Registrate aquí</a>
+          </div>
         </div>
       </div>
-    </>
-  )
+    </div>
+  );
 }
 
-export default LogIn
+export default LogIn;
