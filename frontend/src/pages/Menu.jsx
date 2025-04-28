@@ -10,6 +10,11 @@ import Abstracto from "../imgs/abstracto.png";
 import Realismo from "../imgs/realismo.png";
 import Impresionismo from "../imgs/impresionismo.png";
 import Oleo from "../imgs/oleo.png";
+import Acuarela from "../imgs/acuarela.png";
+import Acrilico from "../imgs/acrilico.png";
+import Pastel from "../imgs/pastel.png";
+import Mixta from "../imgs/mixta.png";
+import Grafito from "../imgs/grafito.png";
 
 function Menu() {
   const categoryItems = [
@@ -45,24 +50,24 @@ function Menu() {
       title: "Óleo"
     },
     {
-      imageUrl: "/images/technique2.jpg",
+      imageUrl: Acuarela,
       title: "Acuarela"
     },
     {
-      imageUrl: "/images/technique3.jpg",
+      imageUrl: Acrilico,
       title: "Acrílico"
     },
     {
-      imageUrl: "/images/technique4.jpg",
+      imageUrl: Pastel,
       title: "Pastel"
     },
     {
-      imageUrl: "/images/technique5.jpg",
+      imageUrl: Mixta,
       title: "Mixta"
     },
     {
-      imageUrl: "/images/technique6.jpg",
-      title: "Digital"
+      imageUrl: Grafito,
+      title: "Grafito"
     }
   ];
   
