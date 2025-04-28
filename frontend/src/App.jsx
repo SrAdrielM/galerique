@@ -5,6 +5,8 @@ import Register from './pages/Register';
 import Menu from './pages/Menu';
 import CarritoCompra from './pages/CarritoCompra';
 import Login from './pages/LogIn'
+import SobreNos from './pages/SobreNos';
+
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/carrito" element={<CarritoCompra />} />
+        <Route path="/SobreNos" element={<SobreNos />} />
       </Routes>
     </Router>
   );
