@@ -9,6 +9,7 @@ import Contenporaneo from "../imgs/contenporaneo.png";
 import Abstracto from "../imgs/abstracto.png";
 import Realismo from "../imgs/realismo.png";
 import Impresionismo from "../imgs/impresionismo.png";
+import Oleo from "../imgs/oleo.png";
 
 function Menu() {
   const categoryItems = [
@@ -40,7 +41,7 @@ function Menu() {
   
   const techniqueItems = [
     {
-      imageUrl: "/images/technique1.jpg",
+      imageUrl: Oleo,
       title: "Óleo"
     },
     {

@@ -1,22 +1,22 @@
 import './App.css';
-<<<<<<< HEAD
-import Menu from './pages/Menu'
-=======
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Register from './pages/Register';
+import Menu from './pages/Menu';
 import CarritoCompra from './pages/CarritoCompra';
 import Login from './pages/LogIn'
->>>>>>> 159687f38b5a700b350752f87de6374918fc34f3
 
 function App() {
-
   return (
-    <>
-<<<<<<< HEAD
-    <Menu/>
-=======
-    <CarritoCompra/>
->>>>>>> 159687f38b5a700b350752f87de6374918fc34f3
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<Menu />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/carrito" element={<CarritoCompra />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App
