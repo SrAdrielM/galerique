@@ -5,6 +5,7 @@ import Register from './pages/Register';
 import Menu from './pages/Menu';
 import CarritoCompra from './pages/CarritoCompra';
 import Login from './pages/LogIn'
+import ProfileBuyer from './pages/profileBuyer'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/carrito" element={<CarritoCompra />} />
+        <Route path="/profileB" element={<ProfileBuyer/>} />
       </Routes>
     </Router>
   );
