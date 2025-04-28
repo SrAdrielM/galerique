@@ -23,7 +23,7 @@
   max-width: 720px;
 }
 
-.card {
+.card-C {
   display: flex;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
@@ -45,19 +45,19 @@
   margin-right: 20px;
 }
 
-.card-content {
+.card-content-C {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.card-title {
+.card-title-C {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.card-description {
+.card-description-C {
   font-size: 16px;
   color: #333;
   margin-bottom: 20px;

@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/CarritoCompra.css';
-import Vector2 from '../imgs/Vector2.png'; 
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import MainMenu from "../components/MainMenu";

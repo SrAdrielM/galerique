@@ -1,0 +1,93 @@
+.cuerpo{
+    margin: 50px 400px;
+}
+
+.titulo1{
+font-weight: bold;
+text-align: left;
+font-size: 30px;
+margin-bottom: 20px;
+}
+
+.titulo2{
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 80px;
+    margin-bottom: 20px;
+    }
+
+.parrafo{
+    text-align: left;
+    font-size:  20px;
+}
+
+/*los contenedores con los integrantes*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    padding: 20px;
+}
+
+.container-sn {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.card-sn {
+    flex: 1;
+    min-width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+}
+
+/* Línea divisoria vertical */
+.card-sn::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 35%; /* Alineado con el borde entre imagen y contenido */
+    height: 100%;
+    width: 1px;
+    background-color: #ccc;
+}
+
+.card-image-sn {
+    width: 35%;
+    background-color: #f9f9f9;
+    position: relative;
+    z-index: 1; /* Para que esté por encima de la línea */
+}
+
+.card-content-sn {
+    width: 65%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-title-sn {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-name-sn {
+    font-size: 16px;
+}
