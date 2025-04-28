@@ -1,0 +1,194 @@
+/* Estilos para la barra de navegación */
+.navbar {
+  display: flex;
+  justify-content: center;
+  background-color: #302D2D;
+  padding: 30px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Para centrarla en su contenedor */
+  border-radius: 25px;
+  background-color: #fff;
+  max-width: 700px;
+  width: 100%;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+  border-radius: 25px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.search-btn {
+  all:unset;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.search-btn img {
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.titulo{
+text-align: center;
+}
+
+.img-carrito {
+  margin-right: 15px;
+}
+
+
+.card-link {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: inherit; /* Asegura que el color del enlace herede el color del texto */
+}
+
+.card {
+  display: flex;
+  width: 100%;
+  max-width: 672px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: white;
+  overflow: hidden;
+  padding: 20px;
+  margin: 20px auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Agrega una transición para el efecto */
+}
+
+.card-image {
+  width: 200px;
+  height: 200px;
+  background-color: #f0f0f0;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card-description {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.card-price {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Efecto de hover */
+.card:hover {
+  transform: scale(1.02); /* Aumenta ligeramente el tamaño */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el efecto */
+}
+
+/* Efecto cuando se hace click (puedes cambiar el color de la sombra si lo deseas) */
+.card:active {
+  transform: scale(1.01); /* Hace la tarjeta un poco más pequeña al hacer clic */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.navbar2 {
+  display: flex;
+  justify-content: center;
+  border-style: solid;
+  border-width: 0 0 5px 0 ;
+  border-color: #e9e9e9;
+  padding: 10px;
+}
+
+
+.navbar-logo {
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.navbar-item {
+  all: unset;
+  background-color: #302D2D;
+  margin: 0 15px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar-item2 {
+  all: unset;
+  color: #858585;
+  margin: 5px 30px 5px 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar-login {
+  all: unset;
+  border-radius: 10px;
+  font-weight: bold;
+  color: black;
+  background-color: white;
+  margin: 0 15px;
+  padding: 8px 40px 8px 40px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar-signin {
+  all: unset;
+  border-radius: 10px;
+  font-weight: bold;
+  color: white;
+  border-style:solid;
+  border-width: 2px;
+  border-color: white;
+  background-color: #302D2D;
+  margin: 0 15px;
+  padding: 8px 40px 8px 40px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.navbar-item:hover {
+  text-decoration: underline;
+}
+
+/* Estilos para el contenido principal */
+.content {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Estilos para el footer */
+.footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: sticky;  /* Usar sticky en lugar de fixed */
+  bottom: 0;  /* Esto asegura que se quede pegado al final */
+}
+
