@@ -1,12 +1,14 @@
 .cuerpo{
-    margin: 50px 400px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 30px 0px;
 }
 
 .titulo1{
-font-weight: bold;
-text-align: left;
-font-size: 30px;
-margin-bottom: 20px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
 .titulo2{
@@ -45,31 +47,16 @@ body {
 }
 
 .card-sn {
-    flex: 1;
-    min-width: 300px;
+    width: 300px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    overflow: hidden;
     display: flex;
-    position: relative;
-}
-
-/* Línea divisoria vertical */
-.card-sn::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 35%; /* Alineado con el borde entre imagen y contenido */
-    height: 100%;
-    width: 1px;
-    background-color: #ccc;
 }
 
 .card-image-sn {
     width: 35%;
     background-color: #f9f9f9;
-    position: relative;
-    z-index: 1; /* Para que esté por encima de la línea */
+    border-radius: 8px 0px 0px 8px;
 }
 
 .card-content-sn {
@@ -90,4 +77,26 @@ body {
 
 .card-name-sn {
     font-size: 16px;
+}
+
+@media (max-width: 1100px) {
+    .cuerpo {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 990px) {
+    .container-sn{
+        justify-content: space-around;
+    }
+}
+
+@media (max-width: 700px) {
+    .titulo1{
+        text-align: center;
+    }
+
+    .parrafo{
+        text-align: justify;
+    }
 }
