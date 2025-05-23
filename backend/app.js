@@ -8,6 +8,7 @@ import productsRouter from "./src/routes/products.js";
 import categoriesRouter from "./src/routes/categories.js";
 import techniqueRouter from "./src/routes/techniques.js";
 import salesRouter from "./src/routes/sales.js"
+import loginRouter from "./src/routes/logIn.js"
 
 const app = express();
 
@@ -21,5 +22,7 @@ app.use("/api/sales", salesRouter)
 app.use("/api/products", productsRouter)
 app.use("/api/categories", categoriesRouter)
 app.use("/api/techniques", techniqueRouter)
+
+app.use("/api/login", loginRouter)
 
 export default app;

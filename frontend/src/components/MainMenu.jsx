@@ -9,9 +9,11 @@ function MainMenu() {
       <div className="topbar">
         <div className="topbar-container">
           <a href="#" className="topbar-link" onClick={() => navigate('/')}>Inicio</a>
-          <a href="#" className="topbar-link">Cuadros</a>
-          <a href="#" className="topbar-link" onClick={() => navigate('/SobreNos/')}>Sobre Nosotros</a>
-          <a href="#" className="topbar-link">Contáctanos</a>
+          <a href="#" className="topbar-link" onClick={() => navigate('/Cuadros')}>Cuadros</a>
+          <a href="#" className="topbar-link" onClick={() => navigate('/SobreNos')}>Sobre Nosotros</a>
+          <a href="#" className="topbar-link" /*</div>onClick={() => navigate('/')}*/>Contáctanos</a>
+          <a href="#" className="topbar-link" onClick={() => navigate('/adminPages/AllUsers')}>Usuarios</a>
+          <a href="#" className="topbar-link" onClick={() => navigate('/adminPages/AllSales')}>Sobre Nosotros</a>
         </div>
       </div>
     );
