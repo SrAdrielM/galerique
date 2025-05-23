@@ -8,6 +8,7 @@ import Login from './pages/LogIn'
 import Cuadros from './pages/Cuadros';
 import SobreNos from './pages/SobreNos';
 import ProfileBuyer from './pages/profileBuyer'
+import AllUsers from "./pages/adminPages/AllUsers"
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/cuadros" element={<Cuadros />} />
         <Route path="/SobreNos" element={<SobreNos />} />
         <Route path="/profileB" element={<ProfileBuyer/>} />
-
+        <Route path="/allUsers" element={<AllUsers/>} />
       </Routes>
     </Router>
   );

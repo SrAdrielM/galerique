@@ -1,0 +1,45 @@
+.users-page {
+  min-height: 100vh;
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+  padding: 1.5rem;
+}
+
+.users-content {
+  max-width: 64rem; /* max-w-4xl */
+  margin: 0 auto;
+  background-color: #ffffff; /* white */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 1.5rem;
+}
+
+.users-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+  color: #1f2937; /* gray-800 */
+  margin-bottom: 1rem;
+}
+
+.tab-buttons {
+  display: flex;
+  border-bottom: 1px solid #e5e7eb; /* border-gray-200 */
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  padding: 0.5rem 1rem;
+  color: #4b5563; /* gray-600 */
+  cursor: default;
+}
+
+.tab-button:hover {
+  color: #1f2937; /* gray-800 */
+}
+
+.tab-button.active {
+  border-bottom: 2px solid #3b82f6; /* border-blue-500 */
+}
+
+.tab-content {
+  margin-top: 1rem;
+}
