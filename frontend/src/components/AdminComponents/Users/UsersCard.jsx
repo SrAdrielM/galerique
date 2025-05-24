@@ -11,19 +11,19 @@ const UsersCard = ({ user, deleteUser }) => {
     <div className="card-container">
       <div className="card-content">
         <h2 className="card-title">
-          {user.name} {user.lastName}
+          {user.fullName}
         </h2>
-        <p className="card-info"><span>Email:</span> {user.email}</p>
-        <p className="card-info"><span>Teléfono:</span> {user.telephone}</p>
-        <p className="card-info"><span>Fecha de nacimiento:</span> {user.birthday}</p>
-        <p className="card-info"><span>DUI:</span> {user.dui}</p>
-
-        <div className="card-buttons">
-          <button className="btn btn-danger" onClick={() => deleteUser(user._id)}>
-            Eliminar
-          </button>
+        <h3>{user.userName}</h3>
+        <div id="infoContainer">
+            <p className="card-info"><span>Email:</span> {user.email}</p>
+            <p className="card-info"><span>Contraseña:</span> {user.password}</p>
+            <p className="card-info"><span>Telefono:</span> {user.phone}</p>
+            <p className="card-info"><span>id:</span> {user._id}</p>
         </div>
       </div>
+      <button className="btn btn-danger" onClick={() => deleteUser(user._id)}>
+        Eliminar
+      </button>
     </div>
   );
 };

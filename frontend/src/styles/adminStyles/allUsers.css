@@ -5,10 +5,8 @@
 }
 
 .users-content {
-  max-width: 64rem; /* max-w-4xl */
+  max-width: 1200px; /* max-w-4xl */
   margin: 0 auto;
-  background-color: #ffffff; /* white */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
   border-radius: 0.5rem; /* rounded-lg */
   padding: 1.5rem;
 }

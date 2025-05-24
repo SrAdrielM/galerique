@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 
 import reviewsRouter from "./src/routes/reviews.js";
 import ordersRouter from "./src/routes/orders.js"
@@ -11,6 +12,13 @@ import salesRouter from "./src/routes/sales.js"
 import loginRouter from "./src/routes/logIn.js"
 
 const app = express();
+
+app.use(
+    cors({
+      origin: "*", // Dominio del cliente
+      credentials: true, // Permitir envío de cookies y credenciales
+    })
+  );
 
 app.use(express.json());
 

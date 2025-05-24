@@ -5,11 +5,11 @@ const router = express.Router();
 import sellerController from "../controllers/sellerCtrl.js";
 
 router.route("/")
-.get(sellerController.getBuyer)
-.post(sellerController.insertBuyer);
+.get(sellerController.getSeller)
+.post(sellerController.insertSeller);
 
 router.route("/:id")
-.put(sellerController.updateBuyer)
-.delete(sellerController.deleteBuyer);
+.put(sellerController.updateSeller)
+.delete(sellerController.deleteSeller);
 
 export default router;

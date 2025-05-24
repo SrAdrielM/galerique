@@ -21,7 +21,7 @@ const sellerSchema = new Schema({
         type: String,
         require: true,
     },
-    phone: {
+    idProduct: {
         type: Schema.Types.ObjectId,
         require: true,
     }

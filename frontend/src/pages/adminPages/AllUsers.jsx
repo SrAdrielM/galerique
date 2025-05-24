@@ -1,4 +1,6 @@
 import React, { useEffect } from "react";
+import Navbar from "../../components/Navbar";
+import MainMenu from "../../components/MainMenu";
 import ListUsers from "../../components/AdminComponents/Users/ListUsers";
 import useDataUser from "../../components/AdminComponents/Users/hooks/useDataUsers";
 
@@ -16,12 +18,12 @@ const Users = () => {
   } = useDataUser();
 
   return (
+    <>
+    <Navbar />
+    <MainMenu />
     <div className="users-page">
-      <div className="users-content">
         <h1 className="users-title">Usuarios</h1>
-        <div className="tab-buttons">
-          <button className="tab-button active">Lista de usuarios</button>
-        </div>
+        <div className="users-content">
         <div className="tab-content">
           <ListUsers
             loading={loading}
@@ -31,6 +33,7 @@ const Users = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

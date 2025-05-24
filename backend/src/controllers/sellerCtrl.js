@@ -2,29 +2,29 @@ const sellerController = {};
 import sellerModel from "../models/SellerMdl.js"
 
 // SELECT
-sellerController.getBuyer = async (req, res) => {
+sellerController.getSeller = async (req, res) => {
     const seller = await sellerModel.find().populate("idProduct")
     res.json(seller)
 }
 
 // INSERT
-sellerController.insertBuyer = async (req, res) => {
-    const { fullName, userName, email, password, phone, idProduct } = req.body;
-    const newSeller = new sellerModel ({ fullName, userName, email, password, phone, idProduct })
+sellerController.insertSeller = async (req, res) => {
+    const { fullName, userName, email, password, phone } = req.body;
+    const newSeller = new sellerModel ({ fullName, userName, email, password, phone })
     await newSeller.save()
     res.json({message: "seller saved"})
 }
 
 // DELETE
-sellerController.deleteBuyer = async (req, res) => {
+sellerController.deleteSeller = async (req, res) => {
     await sellerModel.findByIdAndDelete(req.params.id)
     res.json({message: "seller deleted"})
 }
 
 // UPDATE
-sellerController.updateBuyer = async (req, res) => {
+sellerController.updateSeller = async (req, res) => {
     const { fullName, userName, email, password, phone } = req.body;
-    const updateBuyer = await sellerModel.findByIdAndUpdate(req.params.id, { fullName, userName, email, password, phone, idProduct }, {new: true});
+    const updateBuyer = await sellerModel.findByIdAndUpdate(req.params.id, { fullName, userName, email, password, phone }, {new: true});
     res.json({message: "seller update succesfully"})
 } 
 
