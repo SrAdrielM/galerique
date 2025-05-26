@@ -21,10 +21,19 @@ const productSchema = new Schema(
       type: String,
       required: [true, "El tamaño es obligatorio"],
     },
+    // Nuevos campos para la imagen
+    image: {
+      type: String,
+      required: [true, "La imagen es obligatoria"],
+    },
+    imagePublicId: {
+      type: String,
+      required: true,
+    },
     sellerId: {
       type: Schema.Types.ObjectId,
       ref: "Users", 
-      required: [true, "El ID del vendedor es obligatorio"],
+      // required: [true, "El ID del vendedor es obligatorio"], // Comentado temporalmente
     },
     techniqueId: {
       type: Schema.Types.ObjectId,

@@ -1,0 +1,284 @@
+.agregar-pintura-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.form-header h2 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+.message {
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.pintura-form {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 3rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 0.875rem 1rem;
+  border: 2px solid #e1e8eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fafbfc;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+  background-color: white;
+}
+
+.input-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.char-counter {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.char-counter.valid {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.char-counter.invalid {
+  color: #e74c3c;
+  font-weight: 500;
+}
+
+.form-row-inline {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.price-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.price-input input {
+  flex: 1;
+  padding-right: 3rem;
+}
+
+.currency {
+  position: absolute;
+  right: 1rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  background: white;
+  padding: 0 0.5rem;
+}
+
+.image-section {
+  position: sticky;
+  top: 2rem;
+}
+
+.image-upload {
+  width: 100%;
+  height: 400px;
+}
+
+.image-upload-label {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 3px dashed #bdc3c7;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.image-upload-label:hover {
+  border-color: #3498db;
+  background-color: #f8f9fa;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: #7f8c8d;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.upload-placeholder p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.upload-placeholder span {
+  font-size: 0.9rem;
+  color: #95a5a6;
+}
+
+.image-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.form-actions {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.btn-publicar {
+  background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+  color: white;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.btn-publicar:hover:not(:disabled) {
+  background: linear-gradient(135deg, #2980b9 0%, #1f639a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+}
+
+.btn-publicar:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .agregar-pintura-container {
+    padding: 0 1rem;
+    margin: 1rem auto;
+  }
+
+  .pintura-form {
+    padding: 2rem 1.5rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .form-row-inline {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .form-header h2 {
+    font-size: 2rem;
+  }
+
+  .image-section {
+    position: static;
+    order: -1;
+  }
+
+  .image-upload {
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .pintura-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .btn-publicar {
+    width: 100%;
+    padding: 1rem;
+  }
+}

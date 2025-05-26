@@ -9,6 +9,7 @@ import Cuadros from './pages/Cuadros';
 import SobreNos from './pages/SobreNos';
 import ProfileBuyer from './pages/profileBuyer'
 import AllUsers from "./pages/adminPages/AllUsers"
+import AgregarPintura from './pages/AgregarPintura';
 
 function App() {
   return (
