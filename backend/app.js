@@ -15,8 +15,8 @@ const app = express();
 
 app.use(
     cors({
-      origin: "*", // Dominio del cliente
-      credentials: true, // Permitir envío de cookies y credenciales
+      origin: "http://localhost:5173",
+      credentials: true,
     })
   );
 

@@ -1,11 +1,33 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../styles/Login.css';
+import useLogin from "../components/publicComponents/useDataLogin";
 import googleIcon from "../imgs/googleLogo.png";
 import { useNavigate } from 'react-router-dom';
 
-function LogIn() {
+const Login = () => {
 
+  useEffect(() => {
+    document.title = "Iniciar Sesión";
+  }, []);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { login, error, loading } = useLogin();
   const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const tipoUsuario = await login(email, password);
+
+    if (tipoUsuario) {
+      console.log("Usuario autenticado como:", tipoUsuario);
+      localStorage.setItem("userType", tipoUsuario);
+
+      if (tipoUsuario === "admin") navigate("/");
+      else if (tipoUsuario === "buyer") navigate("/");
+      else if (tipoUsuario === "seller") navigate("/");
+    }
+  };
 
   return (
     <div className="login-container">
@@ -15,20 +37,36 @@ function LogIn() {
 
     
       <div className="login-form-container">
-        <div className="login-form">
+        <form className="login-form" onSubmit={handleSubmit}>
           <h1 className="login-title">Acesso</h1>
           
           <div className="input-group">
-            <label>Correo o Nombre de usuario</label>
-            <input type="text" className="login-input" />
+            <label>Correo</label>
+            <input
+            className="login-input"  
+            type="email"
+            placeholder="Correo electrónico"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+            />
           </div>
           
           <div className="input-group">
             <label>Contraseña</label>
-            <input type="password" className="login-input" />
+            <input 
+            className="login-input" 
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            />
           </div>
           
-          <button className="continue-btn" onClick={() => navigate('/')}>Continuar</button>
+          <button className="continue-btn" type="submit" disabled={loading}>
+            {loading ? "Verificando..." : "Ingresar"}
+          </button>
           
           <div className="forgot-password">
             <a href="#">Olvide mi contraseña</a>
@@ -46,10 +84,10 @@ function LogIn() {
           <div className="register-prompt">
             ¿No tienes cuenta? <a href="#">Registrate aquí</a>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
 }
 
-export default LogIn;
+export default Login;

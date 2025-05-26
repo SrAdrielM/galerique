@@ -40,11 +40,7 @@ loginController.login = async (req, res) => {
 
     // Solo si no es Admin
     if (userType !== "admin") {
-      //veamos si la contraseña que están escribiendo
-      // en el login
-      // Es la misma, que la que está en la BD (encriptada)
-      const isMatch = await bcryptjs.compare(password, userFound.password);
-      if (!isMatch) {
+      if (password !== userFound.password) {
         console.log("no matchea");
         return res.json({ message: "Contraseña incorrecta" });
       }
