@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/AuthContext";
 import "../styles/componentStyles/MainMenu.css";
 
 function MainMenu() {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
+  const { authCokie } = useAuth();
   const userType = localStorage.getItem("userType");
 
   const goToUsers = () => {
@@ -12,6 +14,7 @@ function MainMenu() {
       alert("Acceso restringido: solo para administradores.");
     }
   };
+
 
   return (
     <div className="topbar">

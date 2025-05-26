@@ -1,32 +1,31 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from "react";
+import {
+  BrowserRouter as Router
+} from "react-router-dom";
+import Navegation from "./components/Navegation";
 import { AuthProvider } from "./context/AuthContext";
-import Register from './pages/Register';
-import Menu from './pages/Menu';
-import CarritoCompra from './pages/CarritoCompra';
-import Login from './pages/LogIn'
-import Cuadros from './pages/Cuadros';
-import SobreNos from './pages/SobreNos';
-import ProfileBuyer from './pages/profileBuyer'
-import AllUsers from "./pages/adminPages/AllUsers"
-import AgregarPintura from './pages/AgregarPintura';
+import { Toaster } from "react-hot-toast";
 
 function App() {
+
   return (
+    <AuthProvider>
     <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/carrito" element={<CarritoCompra />} />
-        <Route path="/cuadros" element={<Cuadros />} />
-        <Route path="/SobreNos" element={<SobreNos />} />
-        <Route path="/profileB" element={<ProfileBuyer/>} />
-        <Route path="/allUsers" element={<AllUsers/>} />
-      </Routes>
+      <Navegation />
     </Router>
+    <Toaster
+      toastOptions={{
+        duration: 1000,
+      }}
+    />
+    <Toaster
+      toastOptions={{
+        duration: 1000,
+      }}
+    />
+  </AuthProvider>
   );
 }
 
-export default App
+export default App;
+

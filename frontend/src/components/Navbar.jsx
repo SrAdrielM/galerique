@@ -1,5 +1,7 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from "../context/AuthContext";
+
 import Logo from "../imgs/logo.png";
 
 import "../styles/componentStyles/Navbar.css"
@@ -7,6 +9,8 @@ import "../styles/componentStyles/Navbar.css"
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate(); 
+  const { authCokie } = useAuth();
+
 
   return (
     <nav className="navbar">
@@ -49,7 +53,7 @@ function Navbar() {
             </svg>
           </button>
 
-          <button className="login-button" onClick={() => navigate('/login')}>Iniciar Sesión</button>
+          <button className="login-button" onClick={() => navigate('/')}>Iniciar Sesión</button>
           <button className="register-button" onClick={() => navigate('/register')}>Registrarse</button>
         </div>
       </div>

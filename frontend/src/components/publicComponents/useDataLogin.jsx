@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const useLogin = () => {
   const [error, setError] = useState("");
@@ -12,15 +12,15 @@ const useLogin = () => {
       const response = await fetch("http://localhost:4000/api/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        credentials: "include", // Para enviar y recibir cookies
+        credentials: "include",
         body: JSON.stringify({ email, password }),
       });
 
       const data = await response.json();
+      console.log("Respuesta del backend:", data);
 
-      if (data.message?.includes("Inicio sesion")) {
-        const tipo = data.message.split(": ")[1];
-        return tipo;
+      if (data.success) {
+        return data.tipo;
       } else {
         setError(data.message || "Error al iniciar sesión");
         return null;
@@ -36,5 +36,4 @@ const useLogin = () => {
 
   return { login, error, loading };
 };
-
 export default useLogin;

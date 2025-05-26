@@ -3,6 +3,7 @@ import '../styles/Login.css';
 import useLogin from "../components/publicComponents/useDataLogin";
 import googleIcon from "../imgs/googleLogo.png";
 import { useNavigate } from 'react-router-dom';
+import toast from "react-hot-toast";
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const { login, error, loading } = useLogin();
+  const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -23,9 +25,9 @@ const Login = () => {
       console.log("Usuario autenticado como:", tipoUsuario);
       localStorage.setItem("userType", tipoUsuario);
 
-      if (tipoUsuario === "admin") navigate("/");
-      else if (tipoUsuario === "buyer") navigate("/");
-      else if (tipoUsuario === "seller") navigate("/");
+      if (tipoUsuario === "admin") {navigate("/menu");}
+      else if (tipoUsuario === "buyer") navigate("/menu");
+      else if (tipoUsuario === "seller") navigate("/menu");
     }
   };
 
@@ -82,7 +84,7 @@ const Login = () => {
           </div>
           
           <div className="register-prompt">
-            ¿No tienes cuenta? <a href="#">Registrate aquí</a>
+            ¿No tienes cuenta? <a onClick={() => navigate('/register')}>Registrate aquí</a>
           </div>
         </form>
       </div>

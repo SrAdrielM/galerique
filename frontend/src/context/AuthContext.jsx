@@ -33,15 +33,12 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    // Si luego agregas logout en backend, puedes mantener el fetch aquí.
-    // En logout
     localStorage.removeItem("authToken");
     localStorage.removeItem("user");
     setAuthCokie(null);
     setUser(null);
   };
 
-  // En useEffect
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     const savedUser = localStorage.getItem("user");
