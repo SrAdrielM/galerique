@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Navbar from "../components/Navbar";
 import MainMenu from "../components/MainMenu";
-import CategorySlider from "../components/CategorySlider";
+import CategorySlider from "../components/CategorySlider.jsx";
 import Footer from "../components/Footer";
 import Retratos from "../imgs/retratos.png";
 import Paisajes from "../imgs/paisajes.png";
@@ -28,19 +28,19 @@ function Menu() {
     },
     {
       imageUrl: Contenporaneo,
-      title: "Abstracto"
-    },
-    {
-      imageUrl: Abstracto,
       title: "Contemporáneo"
     },
     {
+      imageUrl: Abstracto,
+      title: "Abstracto"
+    },
+    {
       imageUrl: Realismo,
-      title: "Impresionismo"
+      title: "Realismo"
     },
     {
       imageUrl: Impresionismo,
-      title: "Realismo"
+      title: "Impresionismo"
     }
   ];
   
@@ -77,8 +77,14 @@ function Menu() {
       <MainMenu />
       
       <main className="flex-grow">
-        <CategorySlider title="Explora segun categoria" items={categoryItems} />
-        <CategorySlider title="Explora segun tecnica" items={techniqueItems} />
+        <CategorySlider 
+          title="Explora según categoría" 
+          items={categoryItems} 
+        />
+        <CategorySlider 
+          title="Explora según técnica" 
+          items={techniqueItems} 
+        />
       </main>
       
       <Footer />
