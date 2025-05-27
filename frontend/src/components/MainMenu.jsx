@@ -25,7 +25,7 @@ function MainMenu() {
         <a href="#" className="topbar-link">Contáctanos</a>
 
         {userType === "admin" && (
-          <a href="#" className="topbar-link" onClick={goToUsers}>Usuarios</a>
+          <a href="#" className="topbar-link" onClick={goToUsers}>Administracion</a>
         )}
       </div>
     </div>

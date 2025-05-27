@@ -15,14 +15,22 @@ const UsersCard = ({ user, deleteUser }) => {
         </h2>
         <h3>{user.userName}</h3>
         <div id="infoContainer">
-            <p className="card-info"><span>Email:</span> {user.email}</p>
-            <p className="card-info"><span>Contraseña:</span> {user.password}</p>
-            <p className="card-info"><span>Telefono:</span> {user.phone}</p>
-            <p className="card-info"><span>id:</span> {user._id}</p>
+          <div>
+            <p className="labelText">Email:</p><p className="card-info">{user.email}</p>
+          </div>
+          <div>
+            <p className="labelText">Contraseña:</p><p className="card-info">{user.password}</p>
+          </div>
+          <div>
+            <p className="labelText">Telefono:</p><p className="card-info">{user.phone}</p>
+          </div>
+          <div>
+            <p className="labelText">id:</p><p className="card-info">{user._id}</p>
+          </div>
         </div>
       </div>
       <button className="btn btn-danger" onClick={() => deleteUser(user._id)}>
-        Eliminar
+        Eliminar cuenta
       </button>
     </div>
   );

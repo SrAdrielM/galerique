@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import '../styles/Login.css';
 import useLogin from "../components/publicComponents/useDataLogin";
 import googleIcon from "../imgs/googleLogo.png";
+import { Navigate } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
 import toast from "react-hot-toast";
 
@@ -24,11 +25,9 @@ const Login = () => {
     if (tipoUsuario) {
       console.log("Usuario autenticado como:", tipoUsuario);
       localStorage.setItem("userType", tipoUsuario);
-
-      if (tipoUsuario === "admin") {navigate("/menu");}
-      else if (tipoUsuario === "buyer") navigate("/menu");
-      else if (tipoUsuario === "seller") navigate("/menu");
+      navigate("/menu")
     }
+    
   };
 
   return (

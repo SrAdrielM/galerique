@@ -22,18 +22,8 @@ import AllUsers from "../pages/adminPages/AllUsers";
 import AgregarPintura from '../pages/AgregarPintura';
 
 function Navegation() {
-    const { authCokie } = useAuth();
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (authCokie) {
-      navigate("/menu");
-    }
-  }, [authCokie]);
 
   return(
-    <>
-
     <Routes>
         <Route path="/" element={<Login />} />
 
@@ -46,8 +36,6 @@ function Navegation() {
             <Route path="/sobrenos" element={<SobreNos />} />
         </Route>        
       </Routes>
-
-    </>
   )
 };
 

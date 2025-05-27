@@ -20,6 +20,9 @@ const useLogin = () => {
       console.log("Respuesta del backend:", data);
 
       if (data.success) {
+        localStorage.setItem("authToken", data.token); 
+        localStorage.setItem("userType", data.tipo);
+        localStorage.setItem("user", JSON.stringify({ email }));
         return data.tipo;
       } else {
         setError(data.message || "Error al iniciar sesión");

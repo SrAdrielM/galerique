@@ -59,7 +59,12 @@ loginController.login = async (req, res) => {
         if (error) console.log(error);
 
         res.cookie("authToken", token);
-        res.json({ message: "Inicio sesion: " + userType });
+        res.json({
+          success: true,
+          tipo: userType,
+          token,
+          message: "Inicio sesión exitosa",
+        });
       }
     );
   } catch (error) {

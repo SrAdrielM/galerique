@@ -53,8 +53,7 @@ function Navbar() {
             </svg>
           </button>
 
-          <button className="login-button" onClick={() => navigate('/')}>Iniciar Sesión</button>
-          <button className="register-button" onClick={() => navigate('/register')}>Registrarse</button>
+          <button className="login-button" onClick={() => navigate('/')}>Cerrar sesion</button>
         </div>
       </div>
     </nav>

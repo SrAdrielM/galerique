@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
       }
 
       const data = await response.json();
+
       localStorage.setItem("authToken", data.token);
       localStorage.setItem("user", JSON.stringify({ email }));
       setAuthCokie(data.token);

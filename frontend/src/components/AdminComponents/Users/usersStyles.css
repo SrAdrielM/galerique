@@ -27,3 +27,18 @@
     justify-content: center;
     margin-top: 1rem;
 }
+
+#infoContainer div {
+    display: block;
+    text-align: left;
+}
+
+.labelText {
+    font-weight: 600;
+    font-size: 15px;
+    color: #adadad;
+}
+
+.card-info {
+    font-size: 18px;
+}
