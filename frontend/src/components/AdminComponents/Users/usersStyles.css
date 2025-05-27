@@ -1,7 +1,19 @@
 .card-container {
-    padding: 10px;
+    padding: 15px;
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.card-title {
+    font-family: century gothic;
+    font-size: 24px;
+}
+
+#username {
+    font-size: 18px;
+    font-weight: 650;
+    color: #4e4e4e;
 }
 
 #infoContainer {
@@ -9,6 +21,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    margin-top: 15px;
 }
 
 .list-title {
@@ -31,6 +44,7 @@
 #infoContainer div {
     display: block;
     text-align: left;
+    width: 20%;
 }
 
 .labelText {
@@ -41,4 +55,17 @@
 
 .card-info {
     font-size: 18px;
+}
+
+#infoContainer > div:first-child {
+    width: 30%;
+}
+
+.btn-danger {
+    margin-top: 10px;
+    padding: 10px;
+    color: #fff;
+    border-radius: 5px;
+    background-color: #b40000;
+    font-size: 14px;
 }

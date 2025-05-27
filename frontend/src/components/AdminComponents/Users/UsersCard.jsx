@@ -13,7 +13,7 @@ const UsersCard = ({ user, deleteUser }) => {
         <h2 className="card-title">
           {user.fullName}
         </h2>
-        <h3>{user.userName}</h3>
+        <h3 id="username">{user.userName}</h3>
         <div id="infoContainer">
           <div>
             <p className="labelText">Email:</p><p className="card-info">{user.email}</p>
