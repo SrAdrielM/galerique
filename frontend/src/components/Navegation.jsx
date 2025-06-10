@@ -26,11 +26,11 @@ function Navegation() {
   return(
     <Routes>
         <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
 
         <Route element={<PrivateRoute />}>
             <Route path="/menu" element={<Menu/>}/>
-            <Route path="/allUsers" element={<AllUsers />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/allUsers" element={<AllUsers />} />    
             <Route path="/carrito" element={<CarritoCompra />} />
             <Route path="/cuadros" element={<Cuadros />} />
             <Route path="/sobrenos" element={<SobreNos />} />

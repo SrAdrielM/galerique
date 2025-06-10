@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import toast from "react-hot-toast";
 
 const useDataRegister = () => {
-    const ApiEmployees="http://localhost:4000/api/register";
+    const ApiBuyers="http://localhost:4000/api/buyer";
 
     const [fullName, setFullName] = useState("");
     const [profilePic, setProfilePic] = useState("");
@@ -74,4 +75,23 @@ const useDataRegister = () => {
     }
     };
 
+    return {
+        fullName,
+        setFullName,
+        profilePic,
+        setProfilePic,
+        userName,
+        setUserName,
+        email,
+        setEmail,
+        password,
+        setPassword,
+        phone,
+        setPhone,
+        handleSubmit,
+        cleanData,
+        getCurrentDate
+    }
 }
+
+export default useDataRegister;
