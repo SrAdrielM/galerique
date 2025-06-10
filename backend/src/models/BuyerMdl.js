@@ -5,6 +5,10 @@ const buyerSchema = new Schema({
         type: String,
         require: true,
     },
+    profilePic: {
+        type: String,
+        require: true
+    },
     userName: {
         type: String,
         require: true,
@@ -20,6 +24,10 @@ const buyerSchema = new Schema({
     phone: {
         type: String,
         require: true,
+    },
+    accountDate: {
+        type: Date,
+        require: true
     }
 }, {
     timestamps: true,

@@ -9,8 +9,8 @@ buyerController.getBuyer = async (req, res) => {
 
 // INSERT
 buyerController.insertBuyer = async (req, res) => {
-    const { fullName, userName, email, password, phone } = req.body;
-    const newBuyer = new buyerModel ({ fullName, userName, email, password, phone })
+    const { fullName, profilePic, userName, email, password, phone, accountDate } = req.body;
+    const newBuyer = new buyerModel ({ fullName, profilePic, userName, email, password, phone, accountDate })
     await newBuyer.save()
     res.json({message: "buyer saved"})
 }
@@ -23,8 +23,8 @@ buyerController.deleteBuyer = async (req, res) => {
 
 // UPDATE
 buyerController.updateBuyer = async (req, res) => {
-    const { fullName, userName, email, password, phone } = req.body;
-    const updateBuyer = await buyerModel.findByIdAndUpdate(req.params.id, { fullName, userName, email, password, phone }, {new: true});
+    const { fullName, profilePic, userName, email, password, phone, accountDate } = req.body;
+    const updateBuyer = await buyerModel.findByIdAndUpdate(req.params.id, { fullName, profilePic, userName, email, password, phone, accountDate }, {new: true});
     res.json({message: "buyer update succesfully"})
 } 
 

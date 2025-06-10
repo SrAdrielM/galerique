@@ -33,6 +33,7 @@ function Register() {
             <input type="email" className="register-input" placeholder="Correo electrónico" />
           </div>
           
+          {/* 
           <div className="input-group">
             <label className="text-black">Fecha de nacimiento</label>
             <div className="date-inputs">
@@ -78,7 +79,7 @@ function Register() {
                 <div className="select-arrows"></div>
               </div>
             </div>
-          </div>
+          </div>*/}
 
           <div className="password-container">
             <div className="input-group password-group">
