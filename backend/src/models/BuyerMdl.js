@@ -3,31 +3,31 @@ import {Schema, model} from "mongoose";
 const buyerSchema = new Schema({
     fullName: {
         type: String,
-        require: true,
+        required: true,
     },
     profilePic: {
         type: String,
-        require: true
+        required: true
     },
     userName: {
         type: String,
-        require: true,
+        required: true,
     },
     email: {
         type: String,
-        require: true,
+        required: true,
     },
     password: {
         type: String,
-        require: true,
+        required: true,
     },
     phone: {
         type: String,
-        require: true,
+        required: true,
     },
     accountDate: {
         type: Date,
-        require: true
+        required: true
     }
 }, {
     timestamps: true,
