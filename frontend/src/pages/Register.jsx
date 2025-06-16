@@ -11,6 +11,9 @@ const Register = () => {
     setFullName,
     profilePic,
     setProfilePic,
+    profilePreview,
+    setProfilePreview,
+    handleImageChange,
     userName,
     setUserName,
     email,
@@ -29,7 +32,7 @@ const Register = () => {
           <h1 className="register-title">Registro</h1>
 
           <div className="input-group">
-            <label className="text-black">Nombre completo</label>
+            <label className="rg-text-black">Nombre completo</label>
             <input
               type="text"
               className="register-input"
@@ -40,7 +43,7 @@ const Register = () => {
           </div>
 
           <div className="input-group">
-            <label className="text-black">Nombre de Usuario</label>
+            <label className="rg-text-black">Nombre de Usuario</label>
             <input
               type="text"
               className="register-input"
@@ -50,8 +53,30 @@ const Register = () => {
             />
           </div>
 
+          <div className="rg-image-section">
+            <p>Elige una foto de perfil</p>
+            <div className="rg-image-upload">
+              <label htmlFor="image" className="rg-image-upload-label">
+                {profilePreview ? (
+                  <img src={profilePreview} alt="Vista previa" className="rg-image-preview" />
+                ) : (
+                  <div className="rg-upload-placeholder">
+                    <span>Elegir una foto</span>
+                  </div>
+                )}
+              </label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </div>
+          </div>
+
           <div className="input-group">
-            <label className="text-black">Correo electrónico</label>
+            <label className="rg-text-black">Correo electrónico</label>
             <input
               type="email"
               className="register-input"
@@ -62,7 +87,7 @@ const Register = () => {
           </div>
 
           <div className="input-group">
-            <label className="text-black">Número de teléfono</label>
+            <label className="rg-text-black">Número de teléfono</label>
             <input
               type="text"
               className="register-input"
@@ -72,20 +97,9 @@ const Register = () => {
             />
           </div>
 
-          <div className="input-group">
-            <label className="text-black">URL de Foto de Perfil</label>
-            <input
-              type="text"
-              className="register-input"
-              placeholder="https://..."
-              value={profilePic}
-              onChange={(e) => setProfilePic(e.target.value)}
-            />
-          </div>
-
           <div className="password-container">
             <div className="input-group password-group">
-              <label className="text-black">Nueva contraseña</label>
+              <label className="rg-text-black">Nueva contraseña</label>
               <input
                 type="password"
                 className="register-input"
@@ -96,7 +110,7 @@ const Register = () => {
             </div>
 
             <div className="input-group password-group">
-              <label className="text-black">Confirmar contraseña</label>
+              <label className="rg-text-black">Confirmar contraseña</label>
               <input
                 type="password"
                 className="register-input"

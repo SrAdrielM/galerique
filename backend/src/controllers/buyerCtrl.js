@@ -1,5 +1,7 @@
-const buyerController = {};
 import buyerModel from "../models/BuyerMdl.js"
+import { cloudinary } from "../cloudinary.js";
+
+const buyerController = {};
 
 // SELECT
 buyerController.getBuyer = async (req, res) => {
@@ -9,10 +11,37 @@ buyerController.getBuyer = async (req, res) => {
 
 // INSERT
 buyerController.insertBuyer = async (req, res) => {
-    const { fullName, profilePic, userName, email, password, phone, accountDate } = req.body;
-    const newBuyer = new buyerModel ({ fullName, profilePic, userName, email, password, phone, accountDate })
-    await newBuyer.save()
-    res.json({message: "buyer saved"})
+    try{
+        const { fullName, userName, email, password, phone, accountDate } = req.body;
+
+        if (!req.file) {
+            return res.status(400).json({ message: "La imagen es obligatoria" });
+        }
+    
+        console.log('Imagen subida a Cloudinary:', {
+            url: req.file.path,
+            publicId: req.file.filename
+        });
+        
+        const newBuyer = new buyerModel ({ 
+            fullName, 
+            profilePic: req.file.path,
+            profilePicPublic: req.file.filename, 
+            userName, 
+            email, 
+            password, 
+            phone, 
+            accountDate })
+        await newBuyer.save()
+        res.json({message: "buyer saved", imageUrl: req.file.path})
+    } catch {
+        console.error('Error completo:', error);
+        // Si hay error, eliminar la imagen de Cloudinary
+        if (req.file) {
+        await cloudinary.uploader.destroy(req.file.filename);
+        }
+        res.status(400).json({ message: "failed to register ", error });
+    }
 }
 
 // DELETE

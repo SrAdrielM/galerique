@@ -5,7 +5,8 @@ const useDataRegister = () => {
     const ApiBuyers="http://localhost:4000/api/buyer";
 
     const [fullName, setFullName] = useState("");
-    const [profilePic, setProfilePic] = useState("");
+    const [profilePic, setProfilePic] = useState(null);
+    const [profilePreview, setProfilePreview] = useState(null);
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -28,6 +29,18 @@ const useDataRegister = () => {
     setAccountDate(""); 
     };
 
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+          setProfilePic(file);
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            setProfilePreview(reader.result);
+          };
+          reader.readAsDataURL(file);
+        }
+      };
+
     const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -38,22 +51,25 @@ const useDataRegister = () => {
     }
 
     try {
-        const newBuyer = {
-        fullName,
-        profilePic,
-        userName,
-        email,
-        password,
-        phone,
-        accountDate: getCurrentDate(),
-        };
+        const formDataToSend = new FormData();
+        formDataToSend.append('profilePic', profilePic);
+        formDataToSend.append('title', formData.title);
+        formDataToSend.append('description', formData.description);
+        formDataToSend.append('price', formData.price);
+        formDataToSend.append('size', formData.size);
+        // formDataToSend.append('sellerId', formData.sellerId); // Comentado temporalmente
+        formDataToSend.append('techniqueId', formData.techniqueId);
+        formDataToSend.append('categoriesId', formData.categoriesId);
+
+        // Debug: mostrar datos que se van a enviar
+        console.log('Datos a enviar:');
+        for (let [key, value] of formDataToSend.entries()) {
+            console.log(key, value);
+        }
 
         const response = await fetch(ApiBuyers, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newBuyer),
+            method: 'POST',
+            body: formDataToSend
         });
 
         if (!response.ok) {
@@ -80,6 +96,8 @@ const useDataRegister = () => {
         setFullName,
         profilePic,
         setProfilePic,
+        profilePreview,
+        setProfilePreview,
         userName,
         setUserName,
         email,
@@ -89,6 +107,7 @@ const useDataRegister = () => {
         phone,
         setPhone,
         handleSubmit,
+        handleImageChange,
         cleanData,
         getCurrentDate
     }

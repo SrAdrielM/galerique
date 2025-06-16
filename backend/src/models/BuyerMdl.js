@@ -9,6 +9,10 @@ const buyerSchema = new Schema({
         type: String,
         required: true
     },
+    profilePicPublic: {
+        type: String,
+        required: true
+    },
     userName: {
         type: String,
         required: true,
