@@ -69,7 +69,7 @@ const Login = () => {
           </button>
           
           <div className="forgot-password">
-            <a href="#">Olvide mi contraseña</a>
+            <a onClick={() => navigate('/passwordRecovery')}>Olvide mi contraseña</a>
           </div>
           
           <button className="google-login-btn">

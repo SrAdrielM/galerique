@@ -19,6 +19,7 @@ import Cuadros from '../pages/Cuadros';
 import SobreNos from '../pages/SobreNos';
 import ProfileBuyer from '../pages/profileBuyer';
 import AllUsers from "../pages/adminPages/AllUsers";
+import PasswordRecovery from "../pages/RecuperacionContraseña";
 import AgregarPintura from '../pages/AgregarPintura';
 
 function Navegation() {
@@ -43,6 +44,8 @@ function Navegation() {
             <Route path="/carrito" element={<CarritoCompra />} />
             <Route path="/cuadros" element={<Cuadros />} />
             <Route path="/sobrenos" element={<SobreNos />} />
+            <Route path="/profileBuyer" element={<ProfileBuyer />} />
+            <Route path="/passwordRecovery" element={<PasswordRecovery />} />
         </Route>        
       </Routes>
   )
