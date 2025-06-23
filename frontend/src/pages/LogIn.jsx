@@ -36,7 +36,6 @@ const Login = () => {
         <h1 className="brand-name">Galerique</h1>
       </div>
 
-    
       <div className="login-form-container">
         <form className="login-form" onSubmit={handleSubmit}>
           <h1 className="login-title">Acesso</h1>
