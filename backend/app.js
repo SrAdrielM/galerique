@@ -10,6 +10,8 @@ import categoriesRouter from "./src/routes/categories.js";
 import techniqueRouter from "./src/routes/techniques.js";
 import salesRouter from "./src/routes/sales.js"
 import loginRouter from "./src/routes/logIn.js"
+import PasswordRecoveryRouter from "./src/routes/passwordRecovery.js";
+import logoutRouter from "./src/routes/logout.js"
 
 const app = express();
 
@@ -30,7 +32,9 @@ app.use("/api/sales", salesRouter)
 app.use("/api/products", productsRouter)
 app.use("/api/categories", categoriesRouter)
 app.use("/api/techniques", techniqueRouter)
+app.use("/api/passwordRecovery", PasswordRecoveryRouter)
 
 app.use("/api/login", loginRouter)
+app.use("/api/logout", logoutRouter)
 
 export default app;
