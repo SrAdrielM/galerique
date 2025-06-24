@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import '../styles/Login.css';
+import { useAuth } from "../context/AuthContext";
 import useLogin from "../components/publicComponents/useDataLogin";
 import googleIcon from "../imgs/googleLogo.png";
 import { Navigate } from "react-router-dom";
@@ -14,20 +15,24 @@ const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { login, error, loading } = useLogin();
+  const { Login: login } = useAuth();
+  const { error, loading } = useLogin();
   const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const tipoUsuario = await login(email, password);
+    const result = await login(email, password);
 
-    if (tipoUsuario) {
-      console.log("Usuario autenticado como:", tipoUsuario);
-      localStorage.setItem("userType", tipoUsuario);
-      navigate("/menu")
+    if (!result.success) {
+      toast.error(result.message || "Error al iniciar sesión");
+      return;
     }
-    
+
+    const tipoUsuario = "buyer"; // o lo que recibas como tipo
+    localStorage.setItem("userType", tipoUsuario);
+    navigate("/menu");
+
   };
 
   return (
@@ -36,7 +41,6 @@ const Login = () => {
         <h1 className="brand-name">Galerique</h1>
       </div>
 
-    
       <div className="login-form-container">
         <form className="login-form" onSubmit={handleSubmit}>
           <h1 className="login-title">Acesso</h1>
@@ -70,7 +74,7 @@ const Login = () => {
           </button>
           
           <div className="forgot-password">
-            <a href="#">Olvide mi contraseña</a>
+            <a onClick={() => navigate('/passwordRecovery')}>Olvide mi contraseña</a>
           </div>
           
           <button className="google-login-btn">

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from "../context/AuthContext";
 
@@ -9,8 +9,11 @@ import "../styles/componentStyles/Navbar.css"
 function Navbar() {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate(); 
-  const { authCokie } = useAuth();
+  const {user, logout } = useAuth(); 
 
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <nav className="navbar">
@@ -41,7 +44,7 @@ function Navbar() {
         </div>
 
         <div className="nav-actions">
-          <button className="icon-button" onClick={() => navigate('/profileB')}>
+          <button className="icon-button" onClick={() => navigate('/profileBuyer')}>
             <svg xmlns="http://www.w3.org/2000/svg" className="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
@@ -53,7 +56,7 @@ function Navbar() {
             </svg>
           </button>
 
-          <button className="login-button" onClick={() => navigate('/')}>Cerrar sesion</button>
+          <button className="login-button" onClick={handleLogout}>Cerrar sesion</button>
         </div>
       </div>
     </nav>
