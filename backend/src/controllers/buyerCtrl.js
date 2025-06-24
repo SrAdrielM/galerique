@@ -17,6 +17,14 @@ buyerController.insertBuyer = async (req, res) => {
         if (!req.file) {
             return res.status(400).json({ message: "La imagen es obligatoria" });
         }
+
+        const existingUser = await buyerModel.findOne({
+            $or: [{ email: email }, { userName: userName }]
+        });
+
+        if (existingUser) {
+            return res.status(409).json({ message: "El correo o nombre de usuario ya está en uso" });
+        }
     
         console.log('Imagen subida a Cloudinary:', {
             url: req.file.path,

@@ -7,7 +7,7 @@ import buyerController from "../controllers/buyerCtrl.js";
 
 router.route("/")
 .get(buyerController.getBuyer)
-.post(upload.single('image'), buyerController.insertBuyer);
+.post(upload.single('profilePic'), buyerController.insertBuyer);
 
 router.route("/:id")
 .put(buyerController.updateBuyer)

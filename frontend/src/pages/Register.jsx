@@ -20,6 +20,8 @@ const Register = () => {
     setEmail,
     password,
     setPassword,
+    confirmPassword,
+    setConfirmPassword,
     phone,
     setPhone,
     handleSubmit,
@@ -115,7 +117,8 @@ const Register = () => {
                 type="password"
                 className="register-input"
                 placeholder="Confirmar contraseña"
-                // Este input es visual, pero se puede validar al comparar con `password`
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
           </div>
