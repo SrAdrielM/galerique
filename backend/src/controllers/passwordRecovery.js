@@ -76,7 +76,12 @@ passwordRecoveryController.verifyCode = async (req, res) => {
         config.JWT.secret,
         { expiresIn: "20m" }
       );
-      res.cookie("tokenRecoveryCode", newToken, { maxAge: 20 * 60 * 1000 });
+      res.cookie("tokenRecoveryCode", token, {
+        maxAge: 20 * 60 * 1000,
+        httpOnly: true,
+        sameSite: "Lax",
+        secure: false,
+      });
   
       res.json({ message: "Code verified successfully" });
     } catch (error) {

@@ -36,6 +36,7 @@ function Navegation() {
     <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/passwordRecovery" element={<PasswordRecovery />} />
         {!authCokie? <Route path="/" element = {<Login/>}/>: null}
 
         <Route element={<PrivateRoute />}>
@@ -45,7 +46,6 @@ function Navegation() {
             <Route path="/cuadros" element={<Cuadros />} />
             <Route path="/sobrenos" element={<SobreNos />} />
             <Route path="/profileBuyer" element={<ProfileBuyer />} />
-            <Route path="/passwordRecovery" element={<PasswordRecovery />} />
         </Route>        
       </Routes>
   )

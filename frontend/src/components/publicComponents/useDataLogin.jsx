@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useLogin = () => {
   const [error, setError] = useState("");
@@ -17,21 +17,19 @@ const useLogin = () => {
       });
 
       const data = await response.json();
-      console.log("Respuesta del backend:", data);
 
-      if (data.success) {
-        localStorage.setItem("authToken", data.token); 
-        localStorage.setItem("userType", data.tipo);
+      if (response.ok && data.token) {
+        localStorage.setItem("authToken", data.token);
+        localStorage.setItem("userType", data.tipo || "buyer");
         localStorage.setItem("user", JSON.stringify({ email }));
-        return data.tipo;
+        return { success: true, tipo: data.tipo };
       } else {
-        setError(data.message || "Error al iniciar sesión");
-        return null;
+        setError(data.message || "Credenciales incorrectas");
+        return { success: false };
       }
     } catch (err) {
-      console.error(err);
       setError("Error del servidor");
-      return null;
+      return { success: false };
     } finally {
       setLoading(false);
     }
@@ -39,4 +37,5 @@ const useLogin = () => {
 
   return { login, error, loading };
 };
+
 export default useLogin;

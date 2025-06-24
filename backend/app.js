@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 import reviewsRouter from "./src/routes/reviews.js";
 import ordersRouter from "./src/routes/orders.js"
@@ -23,6 +24,7 @@ app.use(
   );
 
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/orders", ordersRouter);
 app.use("/api/buyer", buyerRouter);

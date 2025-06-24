@@ -1,5 +1,6 @@
 import buyerModel from "../models/BuyerMdl.js"
 import { cloudinary } from "../cloudinary.js";
+import bcryptjs from "bcryptjs";
 
 const buyerController = {};
 
@@ -25,6 +26,8 @@ buyerController.insertBuyer = async (req, res) => {
         if (existingUser) {
             return res.status(409).json({ message: "El correo o nombre de usuario ya está en uso" });
         }
+
+        const hashedPassword = await bcryptjs.hash(password, 10);
     
         console.log('Imagen subida a Cloudinary:', {
             url: req.file.path,
@@ -37,7 +40,7 @@ buyerController.insertBuyer = async (req, res) => {
             profilePicPublic: req.file.filename, 
             userName, 
             email, 
-            password, 
+            password: hashedPassword, 
             phone, 
             accountDate })
         await newBuyer.save()

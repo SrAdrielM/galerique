@@ -10,66 +10,71 @@ loginController.login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    let userFound;
-    let userType;
+    let userFound = null;
+    let userType = null;
 
-    // 1. ADMIN
+    // 1. ADMIN (validación directa sin bcrypt)
     if (
-        email === config.emailAdmin.email &&
-        password === config.emailAdmin.password
-        ) {
-        console.log("Credenciales de admin correctas");
-        userType = "admin";
-        userFound = { _id: "admin" };
-        } else {
-      //2-Buyer
+      email === config.emailAdmin.email &&
+      password === config.emailAdmin.password
+    ) {
+      console.log("Credenciales de admin correctas");
+      userType = "admin";
+      userFound = { _id: "admin" };
+    } else {
+      // 2. Buyer
       userFound = await BuyerMdl.findOne({ email });
-      userType = "buyer";
-
-      if (!userFound) {
+      if (userFound) {
+        userType = "buyer";
+      } else {
+        // 3. Seller
         userFound = await SellerMdl.findOne({ email });
-        userType = "seller";
+        if (userFound) {
+          userType = "seller";
+        }
+      }
+
+      // Si no se encuentra ningún usuario
+      if (!userFound) {
+        return res.status(404).json({ success: false, message: "Usuario no encontrado" });
+      }
+
+      // Comparar la contraseña con bcrypt
+      const isMatch = await bcryptjs.compare(password, userFound.password);
+      if (!isMatch) {
+        return res.status(401).json({ success: false, message: "Contraseña incorrecta" });
       }
     }
 
-    //Usuario no encontrado
-    if (!userFound) {
-      console.log("A pesar de buscar en todos lados, no existe");
-      return res.json({ message: "User not found" });
-    }
-
-    // Solo si no es Admin
-    if (userType !== "admin") {
-      if (password !== userFound.password) {
-        console.log("no matchea");
-        return res.json({ message: "Contraseña incorrecta" });
-      }
-    }
-
-    // --> TOKEN <--
+    // Crear token JWT
     jsonwebtoken.sign(
-      //1-Que voy a guardar
       { id: userFound._id, userType },
-      //2-Secreto
       config.JWT.secret,
-      //3- cuando expira
       { expiresIn: config.JWT.expiresIn },
-      //4-funcion flecha
       (error, token) => {
-        if (error) console.log(error);
+        if (error) {
+          console.log("Error generando token:", error);
+          return res.status(500).json({ success: false, message: "Error generando token" });
+        }
 
-        res.cookie("authToken", token);
+        res.cookie("authToken", token, {
+          httpOnly: true,
+          secure: false,
+          sameSite: "Lax",
+          maxAge: 24 * 60 * 60 * 1000,
+        });
+
         res.json({
           success: true,
           tipo: userType,
           token,
-          message: "Inicio sesión exitosa",
+          message: "Inicio de sesión exitoso",
         });
       }
     );
   } catch (error) {
     console.error("Error en login:", error);
-    res.status(500).json({ message: "error", error: error.message });
+    res.status(500).json({ success: false, message: "Error interno del servidor" });
   }
 };
 
